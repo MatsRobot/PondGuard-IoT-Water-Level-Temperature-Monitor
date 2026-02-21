@@ -55,5 +55,7 @@ This IoT stack is currently being adapted for:
 * **Battery Management Systems (BMS):** Monitoring cell temperatures and voltage via ThingSpeak.
 * **Autonomous Navigation:** Logging ultrasonic and laser distance data to map environmental density and path efficiency.
 
+
+---
 ## 📜 License
-This project is open-source. Feel free to use and adapt this IoT telemetry framework for your own robotic or environmental projects!
+<small>© 2026 MatsRobot | Licensed under the [MIT License](https://github.com/MatsRobot/matsrobot.github.io/blob/main/LICENSE)</small>
