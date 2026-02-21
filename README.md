@@ -17,11 +17,11 @@ While originally developed for environmental monitoring (under the **PondGuard**
 
 ## ✨ Framework Features
 
-* **Cloud-Native Architecture:** Seamless integration with **ThingSpeak** for live graphing and data persistence.
-* **Precision Distance Sensing:** Implementation of Time-of-Flight (ToF) Laser sensors for high-accuracy obstacle or level detection.
+* **Cloud-Native Architecture:** Seamless integration with **ThingSpeak** for live graphing and data persistence via RESTful API calls.
+* **Precision Distance Sensing:** Implementation of **VL53L0X Time-of-Flight (ToF)** Laser sensors for high-accuracy obstacle or level detection.
 * **Multi-Node Thermal Monitoring:** Supports 1-Wire protocol for multiple temperature sensors, ideal for monitoring motor heat or battery pack health.
-* **Edge Visualization:** Real-time data output on local OLED displays for debugging without a PC.
-* **Remote Alarming:** Automated triggers that send mobile notifications if robot parameters (like battery voltage or distance) hit critical thresholds.
+* **Edge Visualization:** Real-time data output on local 0.91" OLED displays for debugging without a PC.
+* **Remote Alarming:** Automated triggers that send mobile notifications via IFTTT if robot parameters hit critical thresholds.
 
 ## 🛠️ Hardware Stack
 
@@ -29,8 +29,8 @@ While originally developed for environmental monitoring (under the **PondGuard**
     * Integrated 0.91-inch OLED.
     * Low-power WiFi for long-range robot-to-cloud communication.
 * **Sensors:** * **Distance:** VL53L0X Laser ToF Sensor.
-    * **Temp:** DS18B20 Waterproof probes.
-* **Connectivity:** ThingSpeak IoT REST API.
+    * **Temp:** DS18B20 Waterproof probes (Daisy-chainable).
+* **Connectivity:** ThingSpeak IoT REST API over Port 80.
 
 ## 📈 Proven Implementation: "PondGuard"
 The first successful deployment of this framework was **PondGuard**, a mission-critical system designed to prevent pond drainage and monitor winter thermal stratification.
@@ -46,15 +46,16 @@ The first successful deployment of this framework was **PondGuard**, a mission-c
 3.  **Cloud Sync:** Data is pushed to the cloud via WiFi.
 4.  **Action:** If the distance exceeds a "Safe" limit (indicating a leak or low level), an alarm is triggered via ThingSpeak React or IFTTT.
 
+
+
 <p align="center">
   <img width="692" src="https://github.com/user-attachments/assets/4115fb1c-bfbe-4537-bb70-f183b4527ff1" alt="Installation Setup" />
 </p>
 
 ## 🔧 Future Robotics Applications
 This IoT stack is currently being adapted for:
-* **Battery Management Systems (BMS):** Monitoring cell temperatures and voltage via ThingSpeak.
-* **Autonomous Navigation:** Logging ultrasonic and laser distance data to map environmental density and path efficiency.
-
+* **Battery Management Systems (BMS):** Monitoring individual cell temperatures and voltage stability via ThingSpeak.
+* **Autonomous Navigation:** Logging laser distance data to cloud-based maps to calculate environmental density.
 
 ---
 ## 📜 License
