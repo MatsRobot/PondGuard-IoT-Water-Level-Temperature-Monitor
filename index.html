@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://matsrobot.github.io/Favicon-192.png" sizes="192x192">
+    
+    <title>Robot IoT Telemetry: Cloud-Connected Robotics | MatsRobot</title>
+    <meta name="description" content="A versatile IoT framework for capturing, transmitting, and visualizing real-time robot sensor data via ThingSpeak.">
+    
+    <link rel="canonical" href="https://github.com/MatsRobot/Robot-IoT-Telemetry" />
+
+    <style>
+        :root {
+            --gh-green: #238636;
+            --gh-green-hover: #2ea44f;
+            --gh-dark: #24292e;
+            --gh-blue: #0366d6;
+            --gh-border: #eaecef;
+            --gh-bg-gray: #f6f8fa;
+            --note-bg: #fffbdd;
+            --note-border: #d4a017;
+            --telemetry-orange: #f39c12;
+        }
+
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; 
+            line-height: 1.6; 
+            color: var(--gh-dark); 
+            max-width: 950px; 
+            margin: 0 auto; 
+            padding: 2rem; 
+        }
+
+        .hero-section {
+            display: flex;
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text { flex: 3; }
+
+        .image-sidebar { 
+            flex: 2; 
+            border: 1px solid var(--gh-border);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .image-sidebar img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+        }
+
+        .caption { 
+            font-size: 0.85rem; 
+            color: #586069; 
+            margin-top: 10px; 
+            display: block; 
+        }
+
+        h1 { font-size: 1.8rem; margin-top: 0; }
+        h2 { color: var(--gh-blue); border-bottom: 1px solid var(--gh-border); padding-bottom: 0.3em; margin-top: 2rem; }
+        h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+
+        .note { 
+            background-color: var(--note-bg); 
+            padding: 1.25rem; 
+            border-left: 5px solid var(--note-border); 
+            margin: 1.5rem 0; 
+            border-radius: 4px;
+        }
+
+        /* --- RESTORED FULL BUTTON STYLES --- */
+        .btn-download { 
+            background-color: var(--gh-green); 
+            color: white; 
+            padding: 12px 28px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 18px; 
+            font-weight: 600;
+            transition: background 0.2s, transform 0.1s;
+            border: 1px solid rgba(27, 31, 35, 0.15);
+            box-shadow: 0 1px 0 rgba(27, 31, 35, 0.1);
+        }
+
+        .btn-download:hover { 
+            background-color: var(--gh-green-hover); 
+        }
+
+        .btn-download:active {
+            transform: translateY(1px);
+        }
+
+        .btn-text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center; 
+            line-height: 1.1;
+            text-align: center;
+        }
+
+        .btn-main {
+            font-size: 1.35rem;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+        }
+
+        .btn-sub-lines {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.95;
+            letter-spacing: 0.2px;
+        }
+
+        .download-icon {
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        .tech-table th { 
+            background-color: var(--gh-bg-gray); 
+            text-align: left; 
+            padding: 12px; 
+            border: 1px solid var(--gh-border);
+        }
+
+        .tech-table td { 
+            padding: 12px; 
+            border: 1px solid var(--gh-border); 
+        }
+
+        .grid { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 2rem; 
+            margin-top: 1.5rem; 
+        }
+
+        code { background-color: var(--gh-bg-gray); padding: 0.2em 0.4em; border-radius: 3px; font-family: monospace; }
+
+        footer { 
+            margin-top: 4rem; 
+            padding: 2rem 0;
+            border-top: 1px solid var(--gh-border); 
+            text-align: center; 
+            color: #6a737d; 
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section, .grid { flex-direction: column; }
+            .btn-download { width: 100%; justify-content: center; box-sizing: border-box; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="hero-section">
+        <div class="hero-text">
+            <h1>🤖 Robot IoT Telemetry: Cloud-Connected Robotics</h1>
+            <p>A robust IoT framework designed to bridge the gap between physical robotics and cloud-based analytics. This system captures, transmits, and visualizes real-time sensor data using the <strong>ESP8266-ThingSpeak REST API</strong>.</p>
+            <div class="note">
+                <strong>Mission Critical:</strong> Originally developed for 24/7 environmental monitoring, this architecture now serves as the backbone for remote robot health monitoring and high-frequency data logging.
+            </div>
+
+            <a href="https://github.com/MatsRobot/Robot-IoT-Telemetry" class="btn-download">
+                <svg class="download-icon" width="32" height="32" viewBox="0 0 24 24">
+                    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                </svg>
+                <div class="btn-text-container">
+                    <span class="btn-main">Downloads</span>
+                    <div class="btn-sub-lines">
+                        <span>Open-Source Build Instructions</span>
+                        <span>& Source Code at GitHub</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="image-sidebar">
+            <img src="https://github.com/user-attachments/assets/5a6b6f9a-1895-4b2e-9d01-fa154d5c94f0" alt="Robot IoT Overview">
+            <span class="caption">System Architecture Overview</span>
+        </div>
+    </div>
+
+    <h2>Technical Framework Features</h2>
+    <p>This project utilizes an edge-to-cloud pipeline to ensure robot health and environmental data persistence:</p>
+    <ul>
+        <li><strong>Cloud-Native Architecture:</strong> Direct integration with <strong>ThingSpeak</strong> for live graphing and historical data storage using HTTP POST requests.</li>
+        <li><strong>Precision ToF Sensing:</strong> Uses VL53L0X Laser sensors which utilize photon travel time (Speed of Light) for millimetre-accurate detection regardless of surface color.</li>
+        <li><strong>Multi-Node Thermal Monitoring:</strong> Implements the 1-Wire protocol for daisy-chained DS18B20 temperature probes, allowing dozens of sensors on a single GPIO pin.</li>
+        <li><strong>Remote Alarming:</strong> Logic triggers (ThingSpeak React / IFTTT) for critical threshold notifications sent directly to mobile devices.</li>
+    </ul>
+
+    <h2>Hardware Specifications</h2>
+    <table class="tech-table">
+        <thead>
+            <tr><th>Component</th><th>Specification / Role</th></tr>
+        </thead>
+        <tbody>
+            <tr><td><strong>Microcontroller</strong></td><td>Heltec WiFi Kit 8 (ESP8266) @ 80MHz</td></tr>
+            <tr><td><strong>Primary Display</strong></td><td>Integrated 0.91-inch OLED (SSD1306 I2C)</td></tr>
+            <tr><td><strong>Distance Sensor</strong></td><td>VL53L0X Laser Time-of-Flight (ToF)</td></tr>
+            <tr><td><strong>Temperature</strong></td><td>DS18B20 Waterproof probes (1-Wire Protocol)</td></tr>
+            <tr><td><strong>Connectivity</strong></td><td>TCP/IP via IEEE 802.11 b/g/n WiFi</td></tr>
+        </tbody>
+    </table>
+
+    <h2>Operational Logic: Under the Hood</h2>
+    <p>To maintain a reliable cloud link without freezing the robot's local movements, the system follows a non-blocking asynchronous cycle:</p>
+    
+    <ol>
+        <li><strong>Sensing:</strong> The hub polls the Laser ToF sensor and multi-point temperature probes using <code>millis()</code> timing to avoid code pauses.</li>
+        <li><strong>Data Formatting:</strong> The ESP8266 creates a URL-encoded string containing the API Key and field data.</li>
+        <li><strong>Cloud Handshake:</strong> A connection is opened to <code>api.thingspeak.com</code> on Port 80, transmitting the telemetry payload.</li>
+        <li><strong>Action:</strong> ThingSpeak analyzes the data; if battery levels or distances cross the "Danger" threshold, it triggers an external webhook.</li>
+    </ol>
+
+    <div class="grid">
+        <div>
+            <h3>Autonomous Health Monitoring</h3>
+            <p>Ideal for Battery Management Systems (BMS), logging cell temperatures and voltages remotely to prevent hardware failure through predictive analytics.</p>
+        </div>
+        <div>
+            <h3>Navigational Logging</h3>
+            <p>Perfect for autonomous mapping, where laser distance data is analyzed over time to calculate environmental density and path efficiency.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 MatsRobot | Part of the Open Source Robotics Initiative</p>
+        <p><small>Copyright (c) 2026 | Licensed under the <a href="https://github.com/MatsRobot/matsrobot.github.io/blob/main/LICENSE" style="color: #6a737d;">MIT License</a></small></p>
+    </footer>
+
+</body>
+</html>
