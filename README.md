@@ -1,6 +1,6 @@
-# 🤖 Robot IoT Telemetry: Cloud-Connected Robotics
+# 🤖 PondGuard IoT Water Level and Temperature Monitor
 
-A versatile IoT framework for capturing, transmitting, and visualizing real-time robot sensor data. This system bridges the gap between physical hardware and cloud-based analytics using the **ThingSpeak** API.
+A versatile IoT framework for capturing, transmitting, and visualizing real-time sensor data. This system bridges the gap between physical hardware and cloud-based analytics using the **ThingSpeak** API.
 
 
 
