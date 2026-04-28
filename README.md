@@ -11,7 +11,7 @@ A versatile IoT framework for capturing, transmitting, and visualizing real-time
 ---
 
 ## 🚀 The Mission
-Modern robotics requires more than just local control; it requires **telemetry**. This project provides a robust template for connecting robot sensors (distance, temperature, orientation) to the cloud. 
+Modern control systems requires **telemetry**. This project provides a robust template for connecting  sensors (distance, temperature, orientation) to the cloud. 
 
 While originally developed for environmental monitoring (under the **PondGuard** implementation), this architecture is now the backbone for my mobile robotics projects, allowing for 24/7 remote health monitoring and data logging.
 
