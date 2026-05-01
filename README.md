@@ -52,7 +52,7 @@ The first successful deployment of this framework was **PondGuard**, a mission-c
   <img width="692" src="https://github.com/user-attachments/assets/4115fb1c-bfbe-4537-bb70-f183b4527ff1" alt="Installation Setup" />
 </p>
 
-## 🔧 Future Robotics Applications
+## 🔧 Future Applications
 This IoT stack is currently being adapted for:
 * **Battery Management Systems (BMS):** Monitoring individual cell temperatures and voltage stability via ThingSpeak.
 * **Autonomous Navigation:** Logging laser distance data to cloud-based maps to calculate environmental density.
